@@ -55,6 +55,9 @@ def inspect_png(blob, label):
     if len(blob) < 12 or blob[-12:-8] != b"\x00\x00\x00\x00" \
             or blob[-8:-4] != b"IEND":
         abort(label + " has no well-formed IEND chunk at the end")
+    iend_crc = zlib.crc32(b"IEND") & 0xFFFFFFFF
+    if struct.unpack(">I", blob[-4:])[0] != iend_crc:
+        abort(label + " has an IEND chunk with a bad CRC32")
     return width, height
 
 
