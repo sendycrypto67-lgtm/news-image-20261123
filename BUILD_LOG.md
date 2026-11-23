@@ -92,3 +92,5 @@ exits 1 naming the file on failure.
 - entry.png: 1024x1024, 606966 bytes,
   sha256 8b1d4996417598fd8047c6e1d67578ce0ab38e640ffb0a28412762f9709e9a21
 - Referral code used: y8skhesk (https://make.fun/r/y8skhesk).
+
+- Coordinator revision: IEND CRC32 is now verified too (in addition to the IEND length/type position check).
